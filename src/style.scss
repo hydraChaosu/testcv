@@ -23,7 +23,7 @@ h2 {
   margin: 0 auto;
   width: 100%;
   display: grid;
-  grid-template-areas: "header header" "personal details";
+  grid-template-areas: "header header" "personal details" "footer footer";
   grid-template-columns: 200px 1fr;
 }
 
@@ -51,4 +51,11 @@ h2 {
   grid-area: details;
   text-align: center;
   background-color: #f6f6f6;
+}
+
+.cv-footer {
+  grid-area: footer;
+  padding: $main-gap;
+  text-align: center;
+  background-color: #f1f1f1;
 }
