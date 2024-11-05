@@ -25,6 +25,7 @@ h2 {
   display: grid;
   grid-template-areas: "header header" "personal details" "footer footer";
   grid-template-columns: 200px 1fr;
+  background-color: #ddd;
 }
 
 .cv-header {

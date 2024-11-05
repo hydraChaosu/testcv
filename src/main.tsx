@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.scss";
+import { Layout } from "./components/Layout";
 
 interface Skill {
   name: string;
@@ -22,7 +23,7 @@ interface Education {
   degree: string;
 }
 
-interface CVData {
+export interface CVData {
   photo: string;
   name: string;
   lastname: string;
@@ -34,7 +35,7 @@ interface CVData {
   educations: Education[];
 }
 
-const cvData: CVData = {
+export const cvData: CVData = {
   photo: "https://placehold.co/400x400?text=JD",
   name: "John",
   lastname: "Doe",
@@ -42,9 +43,9 @@ const cvData: CVData = {
   phone: "222 333 432",
   position: "Sofware Engineer",
   skills: [
-    { name: "JavaScript", level: 5 },
-    { name: "React", level: 4 },
-    { name: "Node.js", level: 3 },
+    { name: "JavaScript", level: 8 },
+    { name: "React", level: 7 },
+    { name: "Node.js", level: 6 },
   ],
   experience: [
     {
@@ -80,65 +81,6 @@ const cvData: CVData = {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <main className="cv-main">
-      <header className="cv-header">
-        <h1>
-          CV - {cvData.name} {cvData.lastname}
-        </h1>
-      </header>
-      <aside className="cv-personal">
-        <h2>Personal data</h2>
-        <img
-          className="cv-photo"
-          src={cvData.photo}
-          alt={`${cvData.name} ${cvData.lastname} profile pic`}
-        />
-        <p>
-          {cvData.name} {cvData.lastname}
-        </p>
-        <small>{cvData.position}</small>
-      </aside>
-      <section className="cv-details">
-        <h2>Experience</h2>
-        <ul>
-          {cvData.experience.map((exp) => (
-            <li key={exp.startDate}>
-              <h3>{exp.position}</h3>
-              <p>
-                {exp.startDate} - {exp.endDate}
-              </p>
-              <p>{exp.description}</p>
-              <p>{exp.company}</p>
-            </li>
-          ))}
-        </ul>
-        <h2>Education</h2>
-        <ul>
-          {cvData.educations.map((edu, index) => (
-            <li key={index}>
-              <h3>{edu.university}</h3>
-              <p>
-                {edu.startDate} - {edu.endDate}
-              </p>
-              <p>{edu.degree}</p>
-            </li>
-          ))}
-        </ul>
-        <h2>Skills</h2>
-        <ul>
-          {cvData.skills.map((skill) => (
-            <li key={skill.name}>
-              <p>{skill.name}</p>
-              <progress value={skill.level} max={10} />
-            </li>
-          ))}
-        </ul>
-      </section>
-      <footer className="cv-footer">
-        <h2>Contact</h2>
-        <p>{cvData.email}</p>
-        <p>{cvData.phone}</p>
-      </footer>
-    </main>
+    <Layout />
   </React.StrictMode>
 );
